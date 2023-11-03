@@ -9,7 +9,8 @@ int main()
     int array[10][10];
     int point=0, result= 0;
 
-    
+for(int p=0; p<test_case; p++)
+{
 for(int i=0; i<10; i++)
 {
     for(int j=0; j<10; j++)
@@ -17,7 +18,6 @@ for(int i=0; i<10; i++)
         cin>>array[i][j];
     }
 }
-
 for(int i = 0; i<10; i++)
 {
     point++;
@@ -30,7 +30,7 @@ for(int i = 0; i<10; i++)
 
     }
 }
-
-
+cout<<result<<endl;
+}
     return 0;
 }
