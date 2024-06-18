@@ -1,8 +1,8 @@
-//Runtime erro ar test case 8
-//Difficulty 900
+// Runtime erro ar test case 8
+// Difficulty 900
 
 #include <iostream>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
 
 int main()
@@ -12,36 +12,39 @@ int main()
 
     long long int n, f, a, b;
     long long int con;
+
     while (test_case--)
     {
         cin >> n >> f >> a >> b;
 
         long long int m[200000];
         m[0] = 0;
+
         for (int i = 1; i <= n; i++)
         {
             cin >> m[i];
+
+            if (i != 0)
+            {
+                con = (m[i] - m[i - 1]) * a;
+
+                if (con <= b || f >= b)
+                {
+                    f -= min(con, b);
+                }
+                else
+                {
+                    f = 0;
+                }
+
+                if (f <= 0)
+                {
+                    cout << "NO" << endl;
+                    break;
+                }
+            }
         }
 
-        for (int i = 1; i <= n; i++)
-        {
-            con = (m[i] - m[i - 1]) * a;
-
-            if (con <= b || f >= b)
-            {
-                f -= min(con, b);
-            }
-            else
-            {
-                f = 0;
-            }
-
-            if (f <= 0)
-            {
-                cout << "NO" << endl;
-                break;
-            }
-        }
         if (f > 0)
         {
             cout << "YES" << endl;
